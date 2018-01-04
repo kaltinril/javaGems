@@ -29,7 +29,7 @@ public class Gems extends ApplicationAdapter {
 
 		// Create a gem
 		// TODO: Load all gems, with their uniquie attributes and images
-		Gem g = new Gem(img);
+		Gem g = new Gem(img, Gem.Types.HEART);
 
 		// TODO: load this level and place the gems
 		// Place a temporary gem

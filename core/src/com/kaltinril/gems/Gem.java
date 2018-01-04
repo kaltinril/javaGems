@@ -13,10 +13,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Gem {
 
-    Texture img;
+    enum Types {
+        HEART,
+        DIAMOND,
+        STAR,
+        TRIANGLE,
+        SQUARE,
+        DONUT
+    }
 
-    Gem(Texture gemImage){
+    Texture img;
+    Types type;
+    int combineEffect; // What happens when this is combined, beyond the normal destruction
+
+    Gem(Texture gemImage, Gem.Types gemType){
         this.img = gemImage;
+        this.type = gemType;
     }
 
     public void draw(SpriteBatch batch, int x, int y){
