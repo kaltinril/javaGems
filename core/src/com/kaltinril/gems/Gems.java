@@ -6,15 +6,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.HashMap;
+
 public class Gems extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
+	Texture imgGemHeart;
+	Texture imgGemDiamond;
 
 	Board gameBoard;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("gems/gem_heart.png");
+		imgGemHeart = new Texture("gems/gem_heart.png");
+		imgGemDiamond = new Texture("gems/gem_diamond.png");
 
 		// TOOD: Load all images using the libgdx asset manager
 
@@ -29,16 +33,15 @@ public class Gems extends ApplicationAdapter {
 
 		// Create a gem
 		// TODO: Load all gems, with their uniquie attributes and images
-		Gem g = new Gem(img, Gem.Types.HEART);
+		Gem gemHeart = new Gem(imgGemHeart, Gem.Types.HEART);
+		Gem gemDiamond = new Gem(imgGemDiamond, Gem.Types.DIAMOND);
+		int maxTypes = Gem.Types.SIZE;
 
-		// TODO: load this level and place the gems
-		// Place a temporary gem
-		for(int i=0;i<10;i++){
-			for(int j=0;j<10;j++){
-				gameBoard.placeGem(g, i, j);
-			}
-		}
+		HashMap<Gem.Types, Gem> possibleGems = new HashMap<Gem.Types, Gem>();
+		possibleGems.put(Gem.Types.HEART, gemHeart);
+		possibleGems.put(Gem.Types.DIAMOND, gemDiamond);
 
+		gameBoard.fill(new Gem.Types[]{Gem.Types.HEART, Gem.Types.DIAMOND}, possibleGems);
 	}
 
 	@Override
@@ -53,6 +56,7 @@ public class Gems extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
+		imgGemHeart.dispose();
+		imgGemDiamond.dispose();
 	}
 }

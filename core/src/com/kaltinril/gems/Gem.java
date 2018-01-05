@@ -19,7 +19,12 @@ public class Gem {
         STAR,
         TRIANGLE,
         SQUARE,
-        DONUT
+        DONUT;
+
+        // Instead of calling Gem.Types.values().length
+        // We can just call Gem.Types.SIZE;
+        // A bit more obvious what we intend
+        public static final int SIZE = Types.values().length;
     }
 
     Texture img;
