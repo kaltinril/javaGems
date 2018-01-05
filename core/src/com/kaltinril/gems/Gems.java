@@ -12,6 +12,10 @@ public class Gems extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture imgGemHeart;
 	Texture imgGemDiamond;
+	Texture imgGemCircle;
+	Texture imgGemSquare;
+	Texture imgGemStar;
+	Texture imgGemTriangle;
 
 	Board gameBoard;
 	@Override
@@ -19,6 +23,10 @@ public class Gems extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		imgGemHeart = new Texture("gems/gem_heart.png");
 		imgGemDiamond = new Texture("gems/gem_diamond.png");
+		imgGemCircle = new Texture("gems/gem_circle.png");
+		imgGemSquare = new Texture("gems/gem_square.png");
+		imgGemStar = new Texture("gems/gem_Star.png");
+		imgGemTriangle = new Texture("gems/gem_triangle.png");
 
 		// TOOD: Load all images using the libgdx asset manager
 
@@ -35,13 +43,30 @@ public class Gems extends ApplicationAdapter {
 		// TODO: Load all gems, with their uniquie attributes and images
 		Gem gemHeart = new Gem(imgGemHeart, Gem.Types.HEART);
 		Gem gemDiamond = new Gem(imgGemDiamond, Gem.Types.DIAMOND);
+		Gem gemCircle = new Gem(imgGemCircle, Gem.Types.CIRCLE);
+		Gem gemSquare = new Gem(imgGemSquare, Gem.Types.SQUARE);
+		Gem gemStar = new Gem(imgGemStar, Gem.Types.STAR);
+		Gem gemTriangle = new Gem(imgGemTriangle, Gem.Types.TRIANGLE);
 		int maxTypes = Gem.Types.SIZE;
 
 		HashMap<Gem.Types, Gem> possibleGems = new HashMap<Gem.Types, Gem>();
 		possibleGems.put(Gem.Types.HEART, gemHeart);
 		possibleGems.put(Gem.Types.DIAMOND, gemDiamond);
+		possibleGems.put(Gem.Types.CIRCLE, gemCircle);
+		possibleGems.put(Gem.Types.SQUARE, gemSquare);
+		possibleGems.put(Gem.Types.STAR, gemStar);
+		possibleGems.put(Gem.Types.TRIANGLE, gemTriangle);
 
-		gameBoard.fill(new Gem.Types[]{Gem.Types.HEART, Gem.Types.DIAMOND}, possibleGems);
+		Gem.Types[] gemsOnLevel = new Gem.Types[]{
+				Gem.Types.HEART,
+				Gem.Types.DIAMOND,
+				Gem.Types.CIRCLE,
+				Gem.Types.SQUARE,
+				Gem.Types.STAR,
+				Gem.Types.TRIANGLE
+		};
+
+		gameBoard.fill(gemsOnLevel, possibleGems);
 	}
 
 	@Override

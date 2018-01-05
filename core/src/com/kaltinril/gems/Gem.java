@@ -19,7 +19,7 @@ public class Gem {
         STAR,
         TRIANGLE,
         SQUARE,
-        DONUT;
+        CIRCLE;
 
         // Instead of calling Gem.Types.values().length
         // We can just call Gem.Types.SIZE;

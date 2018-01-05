@@ -62,7 +62,6 @@ public class Board {
                 for (int x = 0; x < width; x++) {
                     // Pick a random type from the possible types
                     randomGem = rand.nextInt(max);
-                    System.out.print("G: " + randomGem);
 
                     // Get the gem name/enum to use
                     Gem.Types gemType = typesOfGemsToPlace[randomGem];
